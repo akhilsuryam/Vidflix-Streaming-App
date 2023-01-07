@@ -22,12 +22,15 @@ The dotenv module exports a single function that takes an options object as an a
  
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    
+    
 })
 .then(()=> console.log("Database connection Succesfull"))
 .catch((err)=>console.log(err));
-
-
+// mongoose.set('strictQuery', true); 
+app.use(express.json());
+app.use("/api/auth",authRoute)
 app.listen(8800,() => {
     console.log("backend is running")
 });

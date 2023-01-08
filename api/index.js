@@ -12,6 +12,7 @@ It provides a straight-forward,schema-based solution to model your application d
 It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
  */
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -23,6 +24,7 @@ The dotenv module exports a single function that takes an options object as an a
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    autoIndex:true,
     
     
 })
@@ -31,6 +33,7 @@ mongoose.connect(process.env.MONGO_URL,{
 // mongoose.set('strictQuery', true); 
 app.use(express.json());
 app.use("/api/auth",authRoute)
+app.use("/api/users",userRoute)
 app.listen(8800,() => {
     console.log("backend is running")
 });

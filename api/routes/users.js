@@ -35,6 +35,7 @@ const verify = require("../verifyToken")
 
 
 //UPDATE 
+// router
 router.put("/:id", verify, async (req, res) => {
   if (req.user && (req.user.id === req.params.id || req.user.isAdmin)) {
       if (req.body.password) {

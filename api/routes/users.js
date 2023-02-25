@@ -23,7 +23,7 @@ const verify = require("../verifyToken")
 //           $set: req.body,
 //         },
 //         { new: true }
-//       );
+//       ); fg
 //       res.status(200).json(updatedUser);
 //     } catch (err) {
 //       res.status(500).json(err);
